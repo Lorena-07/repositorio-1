@@ -1,6 +1,21 @@
 import numpy
-op1=numpy.zeros([2,3])+3
-op2=numpy.array=([[0,1,2],[3,4,5]])
-print(op1)
-print(op2)
-print(op1*op2)
+
+a=numpy.arange(4)
+print(a)
+print(a>2)
+print(a>=2)
+print(a<9)
+print(a<=1)
+
+a=numpy.arange(4)
+print(a)
+print(a>2)
+print(a>=2)
+print(a<9)
+print(a<=1)
+
+print("----------")
+b=numpy.array([0,1,3,3])
+print(a==a)
+print(a==b)
+print(a != b)
