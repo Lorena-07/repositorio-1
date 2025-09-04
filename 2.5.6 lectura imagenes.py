@@ -1,24 +1,41 @@
-import numpy
+import numpy as np
+from skimage import io
+import matplotlib.pyplot as plt
 
-a=numpy.arange(4)
-b=numpy.array([0,1,2.2,3.1])
-print(numpy.allclose(a,b,atol=0.25))
-print(numpy.allclose(a,b,atol=0.15))
-c=numpy.array([[False,False],[True,True]])
-print(c)
-print(numpy.all(c,axis=0))
-print(numpy.all(c,axis=1))
+photo = io.imread("golden.jpg")
+print(type(photo))
+print(photo.shape)
 
-print("----------")
+plt.imshow(photo)
+plt.show()
 
-a=numpy.arange(4)
-b=numpy.array([0,1,2.2,3.1])
-print("a: ",a)
-print("b: ",b)
-print(numpy.array_equal(a,b))
-print(numpy.greater(a,b))
-print(numpy.greater_equal(a,b))
-print(numpy.less(a,b))
-print(numpy.less_equal(a,b))
-print(numpy.equal(a,b))
-print(numpy.not_equal(a,b))
+plt.imshow(photo[::-1]) # [::-1] significa toma todo en esta dimencion pero alreves
+plt.show()
+
+
+plt.imshow(photo[:, ::-1]) #efecto espejo
+plt.show()
+
+
+plt.imshow(photo[:, :,::-1]) #significa cambiar de RGB a BGR
+plt.show()
+
+plt.imshow(photo[0:534, 0:500]) # recortar
+plt.show()
+
+plt.imshow(photo[::2, ::2]) # reducir a la mitad
+print(photo[::2, ::2].shape)
+plt.show()
+
+
+photo_sin = np.round(np.abs(np.sin(photo) ),0)*260
+print(photo_sin)
+
+photo_msk = np.where(photo> 100, 255, 0)
+plt.imshow(photo_msk)
+plt.show()
+
+
+plt.imshow(photo[:,:,2].T,cmap="jet")
+plt.show()
+
